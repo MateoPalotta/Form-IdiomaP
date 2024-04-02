@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/> 
+</head>
+<body>
+    <form id="formulario">
+        <input type="text" id="palabra" name="palabra">
+        <button onclick="traducirPalabra()" type="button">Traducir</button>
+    </form>
+    <div id="resultado"></div>
+
+    <script type="text/javascript">
+        function idiomaP(palabras){
+        let palabra = "";
+        const vocales = ['a', 'e', 'i', 'o', 'u'];
+        for(i=0; i < palabras.length; i++){
+        let letra = palabras.charAt(i);
+        if (vocales.includes(letra.toLocaleLowerCase())){
+            palabra += letra + "p" + letra;
+        }else{
+            palabra += letra;
+        }
+        }
+        console.log(palabra);
+        return palabra;
+        }
+
+        function traducirPalabra() {
+        const palabra = document.getElementById("palabra").value;
+        const resultado = idiomaP(palabra);
+        document.getElementById("resultado").textContent = resultado;
+        }
+    </script>
+</body>
+</html>
